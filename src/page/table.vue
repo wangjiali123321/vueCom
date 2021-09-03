@@ -1,6 +1,8 @@
 <template>
   <div >
-      <lucky-table-better></lucky-table-better>
+      <lucky-table-better
+        :thead="thead"
+      ></lucky-table-better>
   </div>
 </template>
 
@@ -11,7 +13,7 @@ import luckyTableBetter from '../components/luckyui/luckyTableBetter.vue';
     name:'recommend',
     data:[{
         thead:[{
-
+          id:'1'
         }]
     }],
     beforeCreate(){
