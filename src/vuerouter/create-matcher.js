@@ -7,13 +7,11 @@ import { fillParams } from './util/params'
 import { createRouteMap } from './create-route-map'
 import { normalizeLocation } from './util/location'
 
-
-
 export function createMatcher (
   routes,
   router
 ){
-  console.log(routes, router)
+  // console.log(routes, router)
   const { pathList, pathMap, nameMap } = createRouteMap(routes)
 
   console.log('pathList',pathList,'pathMap',pathMap,'nameMap',nameMap)
