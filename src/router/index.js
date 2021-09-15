@@ -1,8 +1,6 @@
 // import Vue from '../../vue/platforms/web/runtime/index'
 import Vue from 'vue'
 import Router from '../vuerouter/index'
-import Recommend from '../components/recommend/recommend'
-import Disc from '../components/disc/disc'
 // console.log(Router)
 
 Vue.use(Router)
@@ -14,15 +12,9 @@ export default new Router({
       redirect: '/table'
     },
     {
-      path: '/recommend',
+      path: '/topo',
       // component: Recommend,
-      component: (resolve) => require(['../components/recommend/recommend'], resolve),
-      children: [
-        {
-          path: ':id',
-          component: Disc
-        }
-      ]
+      component: (resolve) => require(['../components/topo/topo'], resolve),
     },
     {
       path: '/table',
