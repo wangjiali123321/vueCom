@@ -9,13 +9,11 @@ import luckyTableBetter from '../components/luckyui/luckyTableBetter.vue';
   export default {
   components: { luckyTableBetter },
     name:'recommend',
-    data(){
-      return{
+    data:[{
         thead:[{
 
         }]
-      }
-    },
+    }],
     beforeCreate(){
       // console.log('beforeCreaterecommedn');
     },
