@@ -1,21 +1,42 @@
 <template>
   <div >
-      <lucky-table-better
+      <jimTable
         :thead="thead"
-      ></lucky-table-better>
+        :operateConfig="operateConfig"
+      ></jimTable>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
-import luckyTableBetter from '../components/luckyui/luckyTableBetter.vue';
+import jimTable from '../components/luckyui/jimTable.vue';
   export default {
-  components: { luckyTableBetter },
+  components: { jimTable },
     name:'recommend',
     data(){
       return{
         thead:[{
-          id:'1'
+          prop: 'name',
+          label: 'name'
+        },{
+          prop:'operation',
+          label: 'titlw'
         }]
+      }
+    },
+    computed: {
+      operateConfig() {
+        let that = this;
+        return {
+          optType: {
+            toRemove: {event:'toRemove',text: 'remove',type:'danger'}
+          },
+          optFunc: function(val, userinfo){
+            if(val){
+
+            }
+            return  ['toRemove']
+          }
+        }
       }
     },
     beforeCreate(){
