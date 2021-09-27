@@ -20,6 +20,11 @@ export default new Router({
       path: '/table',
       // component: Recommend,
       component: (resolve) => require(['../page/table'], resolve)
+    },
+    {
+      path: '/map',
+      // component: Recommend,
+      component: (resolve) => require(['../page/map'], resolve)
     }
   ],
   scrollBehavior: () => ({ y: 0 }),
