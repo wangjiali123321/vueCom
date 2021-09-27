@@ -1,7 +1,7 @@
 <template>
   <!-- 中国地图 -->
   <div class="wrapper">
-      <div class="map-container" id="chainMap" style="height: 400px;width:800px;"></div>
+      <div class="map-container" id="chainMap" style="height: 800px"></div>
   </div>
 </template>
 
@@ -10,7 +10,7 @@ import echarts from 'echarts' // echarts支持
 import 'echarts/map/js/china' // 中国地图js
 
 export default {
-  components: {  },
+components: {  },
   name:'recommend',
   mounted() {
     this.chainMap()
@@ -20,67 +20,7 @@ export default {
       let myChart = echarts.init(document.getElementById('chainMap'));
       let option = {
         tooltip: {
-          triggerOn: "mousemove",   //mousemove、click
-          padding:8,
-          borderWidth:1,
-          borderColor:'#409eff',
-          backgroundColor:'rgba(255,255,255,0.7)',
-          textStyle:{
-            color:'#000000',
-            fontSize:13
-          },
-          formatter: function(e, t, n) {
-            let data = e.data;
-            //模拟数据
-            data.specialImportant = Math.random()*1000 | 0;
-            data.import = Math.random()*1000 | 0;
-            data.compare = Math.random()*1000 | 0;
-            data.common = Math.random()*1000 | 0;
-            data.specail = Math.random()*1000 | 0;
-
-            let context = `
-               <div>
-                   <p><b style="font-size:15px;">${data.name}</b>(2020年第一季度)</p>
-               </div>
-            `
-            return context;
-          }
-        },
-        visualMap: {
-          show:true,
-          right: 0,
-          bottom: 20,
-          showLabel:true,
-          pieces: [
-            {
-              gte: 100,
-              label: ">= 1000",
-              color: "#1f307b"
-            },
-            {
-              gte: 500,
-              lt: 999,
-              label: "500 - 999",
-              color: "#3c57ce"
-            },
-            {
-              gte: 100,
-              lt:499,
-              label: "100 - 499",
-              color: "#6f83db"
-            },
-            {
-              gte: 10,
-              lt: 99,
-              label: "10 - 99",
-              color: "#9face7"
-            },
-            {
-              lt:10,
-              label:'<10',
-              color: "#bcc5ee"
-            }
-          ]
+          show: true
         },
         geo: {
           map: 'china',
@@ -279,8 +219,6 @@ export default {
 }
 </script>
 
-<style scoped rel="stylesheet/stylus">
-  .wrapper{
-    width:1500px;
-  }
+<style scoped lang="stylus" rel="stylesheet/stylus">
+  
 </style>

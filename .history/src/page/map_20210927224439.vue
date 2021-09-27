@@ -1,7 +1,7 @@
 <template>
   <!-- 中国地图 -->
   <div class="wrapper">
-      <div class="map-container" id="chainMap" style="height: 400px;width:800px;"></div>
+      <div class="map-container" id="chainMap" style="height: 800px"></div>
   </div>
 </template>
 
@@ -10,7 +10,7 @@ import echarts from 'echarts' // echarts支持
 import 'echarts/map/js/china' // 中国地图js
 
 export default {
-  components: {  },
+components: {  },
   name:'recommend',
   mounted() {
     this.chainMap()
@@ -29,27 +29,33 @@ export default {
             color:'#000000',
             fontSize:13
           },
-          formatter: function(e, t, n) {
-            let data = e.data;
-            //模拟数据
-            data.specialImportant = Math.random()*1000 | 0;
-            data.import = Math.random()*1000 | 0;
-            data.compare = Math.random()*1000 | 0;
-            data.common = Math.random()*1000 | 0;
-            data.specail = Math.random()*1000 | 0;
+          // formatter: function(e, t, n) {
+          //   let data = e.data;
+          //   //模拟数据
+          //   data.specialImportant = Math.random()*1000 | 0;
+          //   data.import = Math.random()*1000 | 0;
+          //   data.compare = Math.random()*1000 | 0;
+          //   data.common = Math.random()*1000 | 0;
+          //   data.specail = Math.random()*1000 | 0;
 
-            let context = `
-               <div>
-                   <p><b style="font-size:15px;">${data.name}</b>(2020年第一季度)</p>
-               </div>
-            `
-            return context;
-          }
+          //   let context = `
+          //      <div>
+          //          <p><b style="font-size:15px;">${data.name}</b>(2020年第一季度)</p>
+          //          <p class="tooltip_style"><span class="tooltip_left">事件总数</span><span class="tooltip_right">${data.value}</span></p>
+          //          <p class="tooltip_style"><span class="tooltip_left">特别重大事件</span><span class="tooltip_right">${data.specialImportant}</span></p>
+          //          <p class="tooltip_style"><span class="tooltip_left">重大事件</span><span class="tooltip_right">${data.import}</span></p>
+          //          <p class="tooltip_style"><span class="tooltip_left">较大事件</span><span class="tooltip_right">${data.compare}</span></p>
+          //          <p class="tooltip_style"><span class="tooltip_left">一般事件</span><span class="tooltip_right">${data.common}</span></p>
+          //          <p class="tooltip_style"><span class="tooltip_left">特写事件</span><span class="tooltip_right">${data.specail}</span></p>
+          //      </div>
+          //   `
+          //   return context;
+          // }
         },
         visualMap: {
           show:true,
-          right: 0,
-          bottom: 20,
+          left: 26,
+          bottom: 40,
           showLabel:true,
           pieces: [
             {
@@ -279,8 +285,6 @@ export default {
 }
 </script>
 
-<style scoped rel="stylesheet/stylus">
-  .wrapper{
-    width:1500px;
-  }
+<style scoped lang="stylus" rel="stylesheet/stylus">
+  
 </style>

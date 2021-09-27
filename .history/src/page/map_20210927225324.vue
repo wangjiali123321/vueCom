@@ -1,7 +1,7 @@
 <template>
   <!-- 中国地图 -->
   <div class="wrapper">
-      <div class="map-container" id="chainMap" style="height: 400px;width:800px;"></div>
+      <div class="map-container" id="chainMap" style="height: 800px"></div>
   </div>
 </template>
 
@@ -48,8 +48,8 @@ export default {
         },
         visualMap: {
           show:true,
-          right: 0,
-          bottom: 20,
+          right: 50,
+          bottom: 250,
           showLabel:true,
           pieces: [
             {
@@ -282,5 +282,6 @@ export default {
 <style scoped rel="stylesheet/stylus">
   .wrapper{
     width:1500px;
+    height:500px;
   }
 </style>

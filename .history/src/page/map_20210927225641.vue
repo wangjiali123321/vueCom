@@ -48,8 +48,8 @@ export default {
         },
         visualMap: {
           show:true,
-          right: 0,
-          bottom: 20,
+          right: 50,
+          bottom: 250,
           showLabel:true,
           pieces: [
             {
