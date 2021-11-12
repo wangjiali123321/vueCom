@@ -13,7 +13,7 @@ export default {
   components: {  },
   name:'recommend',
   mounted() {
-    this.chainMap()
+    // this.chainMap()
   },
   methods: {
     chainMap () {

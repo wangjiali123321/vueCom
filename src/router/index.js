@@ -9,7 +9,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/map'
+      redirect: '/test'
     },
     {
       path: '/topo',
@@ -25,6 +25,11 @@ export default new Router({
       path: '/map',
       // component: Recommend,
       component: (resolve) => require(['../page/map'], resolve)
+    },
+    {
+      path: '/test',
+      // component: Recommend,
+      component: (resolve) => require(['../page/test'], resolve)
     }
   ],
   scrollBehavior: () => ({ y: 0 }),
