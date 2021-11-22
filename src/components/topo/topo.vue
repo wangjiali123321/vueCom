@@ -68,7 +68,7 @@ export default {
 
     function createNode(x, y, anchorX, anchorY) {
         var node = new ht.Node();
-        node.setPosition(x, y);
+        node.setPosition(x, y)
         node.setAnchor(anchorX, anchorY);
         node.s({
             'label': anchorX + ',' + anchorY,

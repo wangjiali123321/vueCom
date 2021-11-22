@@ -32,12 +32,12 @@ export default {
     rulerFrame.getDefaultRulerConfig().guideTipBackground = "rgb(0, 173, 239)";
     rulerFrame.getDefaultRulerConfig().guideTipTextColor = "white";
     
-    rulerFrame.getLeftRulerConfig().background = "yellow";
-    rulerFrame.getLeftRulerConfig().tickSpacingAdaptable = false;
+    rulerFrame.getLeftRulerConfig().background = "red";
+    rulerFrame.getLeftRulerConfig().tickSpacingAdaptable = true;
     rulerFrame.getLeftRulerConfig().defaultMajorTickSpacing = 100;
-    rulerFrame.getLeftRulerConfig().guideTipVisible = false;
+    rulerFrame.getLeftRulerConfig().guideTipVisible = true;
     
-    rulerFrame.getTopRulerConfig().guideTipVisible = false;
+    rulerFrame.getTopRulerConfig().guideTipVisible = true;
     
     rulerFrame.getRightRulerConfig().visible = true;
     

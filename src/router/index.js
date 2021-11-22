@@ -14,7 +14,7 @@ export default new Router({
     {
       path: '/topo',
       // component: Recommend,
-      component: (resolve) => require(['../components/topo/topo3'], resolve),
+      component: (resolve) => require(['../components/topo/topo'], resolve),
     },
     {
       path: '/table',
@@ -30,6 +30,11 @@ export default new Router({
       path: '/test',
       // component: Recommend,
       component: (resolve) => require(['../page/test'], resolve)
+    },
+    {
+      path: '/three',
+      // component: Recommend,
+      component: (resolve) => require(['../page/three'], resolve)
     }
   ],
   scrollBehavior: () => ({ y: 0 }),

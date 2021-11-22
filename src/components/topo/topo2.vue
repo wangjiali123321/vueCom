@@ -33,24 +33,18 @@ export default {
         this.graphView.invalidate();
     }, false);                         
         
-    ht.Default.setImage('mac', './mac-air.png');            
+    ht.Default.setImage('mac', '../mac-air.png');            
         
     let air11 = new ht.Node();
     air11.setName('11-inch MacBook Air');
     air11.setImage('mac');
-    air11.s({
-      'label': 1 + ',' + 2111,
-    });
     air11.setSize(80, 43);
     air11.setPosition(100, 70);                
     dataModel.add(air11);
     
     let air13 = new ht.Node();
     air13.setName('13-inch MacBook Air');                
-    air13.setImage('mac');
-    air13.s({
-      'label': 1 + ',' + 2111,
-    });
+    air13.setImage('mac','../mac-air.png');
     air13.setPosition(260, 70);
     air13.setRotation(Math.PI/2);
     dataModel.add(air13);
@@ -78,11 +72,21 @@ export default {
 </script>
 <style scoped>
 .cut-topo {
-    text-align: left;
-    position: relative;
-    width: 800px;
-    height: 500px;
-    margin: auto;
-    border: 1px solid #ccc;
+  text-align: left;
+  position: relative;
+  width: 800px;
+  height: 500px;
+  margin: auto;
+  border: 1px solid #ccc;
+  
+}
+.main {
+    margin: 0px;
+    padding: 0px;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
 }
 </style>
