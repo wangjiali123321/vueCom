@@ -1,7 +1,8 @@
 <template>
   <!-- 中国地图 -->
   <div class="wrapper">
-    123
+    <!-- <slot name="title"></slot> -->
+    <slot></slot>
   </div>
 </template>
 
@@ -46,7 +47,7 @@ export default {
     console.log(this.name)
   },
   mounted() {
-    // console.log(this.name)
+    console.log(this.$slots)
   },
   methods: {
   }

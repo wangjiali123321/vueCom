@@ -2,7 +2,9 @@
   <!-- 中国地图 -->
   <div class="wrapper">
     123
-    <testchild :old="old"></testchild>
+    <testchild :old="old">
+      <div >123666</div>
+    </testchild>
   </div>
 </template>
 

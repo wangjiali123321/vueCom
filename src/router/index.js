@@ -9,12 +9,12 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/topo'
+      redirect: '/test'
     },
     {
       path: '/topo',
       // component: Recommend,
-      component: (resolve) => require(['../components/topo/topo'], resolve),
+      component: (resolve) => require(['../components/topo/topo3'], resolve),
     },
     {
       path: '/table',
