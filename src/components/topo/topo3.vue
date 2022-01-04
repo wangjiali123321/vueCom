@@ -50,7 +50,9 @@ export default {
     dataModel.add(node);
     
     graphView.getView().style.background = "rgb(232, 232, 232)";
-    
+
+    graphView.getView().style.height = "600px"
+
     view.className = "main";
     this.$refs.cutTopo.appendChild(view);
     
