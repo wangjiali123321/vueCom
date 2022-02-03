@@ -1,6 +1,6 @@
 <template>
   <div class="recommend" ref="recommend">
-    recommend
+    recommendrrrr
     <router-view></router-view>
   </div>
 </template>

@@ -9,7 +9,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/test'
+      redirect: '/map'
     },
     {
       path: '/topo',
@@ -29,10 +29,12 @@ export default new Router({
     {
       path: '/test',
       // component: Recommend,
+      name:'test',
       component: (resolve) => require(['../page/test'], resolve)
     },
     {
       path: '/three',
+      name:'threejs',
       // component: Recommend,
       component: (resolve) => require(['../page/three'], resolve)
     }
