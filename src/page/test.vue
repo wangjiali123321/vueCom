@@ -1,37 +1,14 @@
 <template>
   <div class="wrapper">
     123
-    《
-    <!-- form valid -->
-    <!-- <el-form ref="operateForm" :rules="rules" :model="ruleForm"> 
-      <div v-for="(item,index) in inputList" :key="index" >
-        <el-form-item :label="item.label" :prop="item.label">
-          <el-input v-model="ruleForm[item.label]"></el-input>
-        </el-form-item>
-      </div>
-    </el-form>
-    <el-button @click="showname"></el-button>
-    <!-- vue-router 路由一致如何处理 -->
-    <!-- router.replace -->
-    <!-- <el-button @click="replace"></el-button> -->
-
-    <!-- <router-link :to="{ path: '/test',params:{name:'12'}}" replace>replace</router-link> -->
-    <!-- <router-link
-      :to="{name:'test',params:{name:'12'}}"
-      custom
-      v-slot="{ href, route, navigate, isActive }"
-    >
-      <NavLink :active="isActive" :href="href" @click="navigate"
-        >{{ route.fullPath }}</NavLink
-      >
-    </router-link> -->
-    <!-- img 发起请求 -->
-    <div ref="imgmmm" style="display:none"></div> -->
+    <div class="jim">jim</div>
   </div>
 </template>
 
 <script type="text/ecmascript-6">
 import testchild from './testchild.vue'
+import { fromEvent } from 'rxjs';
+import { throttleTime, scan } from 'rxjs/operators';
 
 export default {
   components: { testchild },
@@ -64,18 +41,14 @@ export default {
     // console.log(this.name)
   },
   mounted() {
-    // console.log(this.name)
-    let form = {}
-    this.inputList.forEach(e=>{
-      // this.$set(this.ruleForm,e.label,'') 
-      let obj = {}
-      obj[e.label] = ''
-      form = Object.assign({},form,obj)
-    })
-    this.ruleForm = form
-    console.log(this.ruleForm)
-
-    this.initImg()
+    console.log('test')
+    console.log(document)
+    fromEvent(document, 'click')
+    .pipe(
+      throttleTime(1000),
+      scan(count => count + 1, 0)
+    )
+    .subscribe(count => console.log(`Clicked ${count} times`));
   },
   methods: {
     showname(){
@@ -104,5 +77,9 @@ export default {
 <style scoped rel="stylesheet/stylus">
   .wrapper{
     width:1500px;
+    
+  }
+  .jim{
+    background: black;
   }
 </style>

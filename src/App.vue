@@ -110,3 +110,8 @@ export default {
   
 }
 </script>
+<style rel="stylesheet/stylus">
+  .jim{
+    height: 200px;
+  }
+</style>
