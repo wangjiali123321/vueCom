@@ -1,4 +1,3 @@
-
 <template>
     <div>
         <p> {{ firstNum }} </p>

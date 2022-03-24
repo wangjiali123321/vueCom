@@ -1,7 +1,6 @@
 <template>
   <div class="wrapper">
     123
-    <div class="jim">jim</div>
   </div>
 </template>
 
