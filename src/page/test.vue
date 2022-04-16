@@ -1,12 +1,13 @@
 <template>
   <div class="wrapper">
-    <div ref="imgmmm" style="display:none"></div> -->
+    123
   </div>
 </template>
 
 <script type="text/ecmascript-6">
 import testchild from './testchild.vue'
-import { Observable } from 'rxjs';
+import { fromEvent } from 'rxjs';
+import { throttleTime, scan } from 'rxjs/operators';
 
 export default {
   components: { testchild },
@@ -39,6 +40,7 @@ export default {
     // console.log(this.name)
   },
   mounted() {
+<<<<<<< HEAD
     // console.log(this.name)
     // let form = {}
     // this.inputList.forEach(e=>{
@@ -80,6 +82,16 @@ export default {
 
     // 取消订阅
     subscription.unsubscribe();
+=======
+    console.log('test')
+    console.log(document)
+    fromEvent(document, 'click')
+    .pipe(
+      throttleTime(1000),
+      scan(count => count + 1, 0)
+    )
+    .subscribe(count => console.log(`Clicked ${count} times`));
+>>>>>>> c5d03939b41f2766f41df0edf85d78088e107413
   },
   methods: {
     showname(){
@@ -108,5 +120,9 @@ export default {
 <style scoped rel="stylesheet/stylus">
   .wrapper{
     width:1500px;
+    
+  }
+  .jim{
+    background: black;
   }
 </style>

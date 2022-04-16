@@ -9,7 +9,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/test'
+      redirect: '/rxjs'
     },
     {
       path: '/topo',
@@ -37,6 +37,11 @@ export default new Router({
       name:'threejs',
       // component: Recommend,
       component: (resolve) => require(['../page/three'], resolve)
+    },
+    {
+      path: '/rxjs',
+      name: 'rxjs',
+      component: (resolve) => require(['../page/rxjs'], resolve)
     }
   ],
   scrollBehavior: () => ({ y: 0 }),

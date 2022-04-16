@@ -10,7 +10,7 @@
 <script type="text/ecmascript-6">
 import jimTable from '../components/luckyui/jimTable.vue';
   export default {
-  components: { jimTable },
+    components: { jimTable },
     name:'recommend',
     data(){
       return{
