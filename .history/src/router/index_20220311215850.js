@@ -9,12 +9,12 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/map'
+      redirect: '/test'
     },
     {
       path: '/topo',
       // component: Recommend,
-      component: (resolve) => require(['../components/topo/topo'], resolve),
+      component: (resolve) => require(['../components/topo/topo3'], resolve),
     },
     {
       path: '/table',
@@ -25,6 +25,18 @@ export default new Router({
       path: '/map',
       // component: Recommend,
       component: (resolve) => require(['../page/map'], resolve)
+    },
+    {
+      path: '/test',
+      // component: Recommend,
+      name:'test',
+      component: (resolve) => require(['../page/test'], resolve)
+    },
+    {
+      path: '/three',
+      name:'threejs',
+      // component: Recommend,
+      component: (resolve) => require(['../page/three'], resolve)
     }
   ],
   scrollBehavior: () => ({ y: 0 }),

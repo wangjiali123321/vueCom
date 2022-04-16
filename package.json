@@ -12,6 +12,7 @@
     "echarts": "^3.8.5",
     "element-ui": "^2.15.2",
     "path-to-regexp": "^1.7.0",
+    "rxjs": "^7.5.5",
     "simple-git": "^2.48.0",
     "three": "^0.134.0",
     "vue": "^2.5.21",

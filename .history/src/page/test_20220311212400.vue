@@ -1,12 +1,37 @@
 <template>
   <div class="wrapper">
+    123
+    《
+    <!-- form valid -->
+    <!-- <el-form ref="operateForm" :rules="rules" :model="ruleForm"> 
+      <div v-for="(item,index) in inputList" :key="index" >
+        <el-form-item :label="item.label" :prop="item.label">
+          <el-input v-model="ruleForm[item.label]"></el-input>
+        </el-form-item>
+      </div>
+    </el-form>
+    <el-button @click="showname"></el-button>
+    <!-- vue-router 路由一致如何处理 -->
+    <!-- router.replace -->
+    <!-- <el-button @click="replace"></el-button> -->
+
+    <!-- <router-link :to="{ path: '/test',params:{name:'12'}}" replace>replace</router-link> -->
+    <!-- <router-link
+      :to="{name:'test',params:{name:'12'}}"
+      custom
+      v-slot="{ href, route, navigate, isActive }"
+    >
+      <NavLink :active="isActive" :href="href" @click="navigate"
+        >{{ route.fullPath }}</NavLink
+      >
+    </router-link> -->
+    <!-- img 发起请求 -->
     <div ref="imgmmm" style="display:none"></div> -->
   </div>
 </template>
 
 <script type="text/ecmascript-6">
 import testchild from './testchild.vue'
-import { Observable } from 'rxjs';
 
 export default {
   components: { testchild },
@@ -40,46 +65,17 @@ export default {
   },
   mounted() {
     // console.log(this.name)
-    // let form = {}
-    // this.inputList.forEach(e=>{
-    //   // this.$set(this.ruleForm,e.label,'') 
-    //   let obj = {}
-    //   obj[e.label] = ''
-    //   form = Object.assign({},form,obj)
-    // })
-    // this.ruleForm = form
-    // console.log(this.ruleForm)
+    let form = {}
+    this.inputList.forEach(e=>{
+      // this.$set(this.ruleForm,e.label,'') 
+      let obj = {}
+      obj[e.label] = ''
+      form = Object.assign({},form,obj)
+    })
+    this.ruleForm = form
+    console.log(this.ruleForm)
 
-    // this.initImg()
-
-    // 定义一个观察者
-    const observer = (subscriber) => {
-        console.log('hello world');
-        subscriber.next(1);
-        subscriber.next(2);
-        subscriber.next(3);
-        setTimeout(() => {
-          subscriber.next(4); 
-          subscriber.complete();
-        }, 1000);
-    }
-
-    // 构建一个 Observable
-    const observable = new Observable(observer);
-    
-    console.log('just before subscribe');
-
-    // 通过 Observable 的 subscribe 方法进行调用，并返回一个 subscription 用于资源释放
-    const subscription = observable.subscribe({
-      next(x) { console.log('got value ' + x); },
-      error(err) { console.error('something wrong occurred: ' + err); },
-      complete() { console.log('done'); }
-    });
-
-    console.log('just after subscribe');
-
-    // 取消订阅
-    subscription.unsubscribe();
+    this.initImg()
   },
   methods: {
     showname(){
