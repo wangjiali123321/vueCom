@@ -54,6 +54,11 @@ export default {
     },
     _drawFrame(img){
       this.canvas = this.$refs.canvas
+      this.canvas.width = 400
+      this.canvas.height = 400
+      this.canvas.style.width = '400px'
+      this.canvas.style.height = '400px'
+
       this.ctx = this.canvas.getContext('2d')
       this.ctx.imageSmoothingEnabled = true;
       this.ctx.imageSmoothingQuality = "high";
@@ -70,11 +75,11 @@ export default {
       this.imgData = {
         startX: 0,
         startY: 0,
-        width: 400,
-        height: 400
+        width: 800,
+        height: 800
       }
 
-      let { startX = 0, startY = 0, width = 6000, height =6000} = this.imgData
+      let { startX , startY, width, height} = this.imgData
       console.log( startX, startY, width, height)
         console.log('this.img',img)
       this.ctx.drawImage(img, startX, startY, width, height)
