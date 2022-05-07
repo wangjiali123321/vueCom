@@ -9,7 +9,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/rxjs'
+      redirect: '/cropper'
     },
     {
       path: '/topo',

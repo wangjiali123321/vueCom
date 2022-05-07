@@ -129,6 +129,7 @@ export default {
   computed: {
     outputWidth () {
       const w = this.useAutoSizing ? this.realWidth : this.width
+      console.log('w',w,'this.quality',this.quality,w * this.quality)
       return w * this.quality
     },
 
@@ -565,6 +566,7 @@ export default {
       this.canvas.height = this.outputHeight
       this.canvas.style.width = (this.useAutoSizing ? this.realWidth : this.width) + 'px'
       this.canvas.style.height = (this.useAutoSizing ? this.realHeight : this.height) + 'px'
+      console.log(this.canvas.width,this.canvas.height,this.canvas.style.width,this.canvas.style.height)
     },
 
     _rotateByStep (step) {
@@ -750,6 +752,7 @@ export default {
       if (!input.files.length || this.passive) return
 
       let file = input.files[0]
+      console.log('file',file)
       this._onNewFileIn(file)
     },
 
@@ -774,6 +777,7 @@ export default {
         let fr = new FileReader()
         fr.onload = (e) => {
           let fileData = e.target.result
+          console.log('fileData',fileData)
           const base64 = u.parseDataUrl(fileData)
           const isVideo = /^video/.test(file.type)
           if (isVideo) {
@@ -889,8 +893,10 @@ export default {
       applyMetadata && this._applyMetadata()
 
       if (applyMetadata && this.preventWhiteSpace) {
+        console.log(1)
         this.zoom(false, 0)
       } else {
+        console.log(2)
         this.move({ x: 0, y: 0 })
         this._draw()
       }
@@ -1196,8 +1202,9 @@ export default {
       this.loading = false
       let ctx = this.ctx
       let { startX, startY, width, height } = this.imgData
-
+      console.log( startX, startY, width, height)
       this._paintBackground()
+      // console.log('this.img',this.img)
       ctx.drawImage(this.img, startX, startY, width, height)
 
       if (this.preventWhiteSpace) {
