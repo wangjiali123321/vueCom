@@ -1,42 +1,93 @@
 <template>
-    <div>
-        <p> {{ firstNum }} </p>
-        <p> {{ secondNum }} </p>
-        <p> {{ thirdNum }} </p>
-    </div>
+  <div class="wrapper">
+    123
+  </div>
 </template>
- 
-<script>
- 
+
+<script type="text/ecmascript-6">
+import testchild from './testchild.vue'
+import { Observable } from 'rxjs';
+import { throttleTime, scan } from 'rxjs/operators';
+
 export default {
-    computed: {
-        secondNum() {
-            // firstNum 从一开始就与之绑定关联
-            console.log('secondNum is computing: ' + this.firstNum * 100)
-            return this.firstNum * 100
-        }
-    },
-    data() {
-        return {
-            firstNum: 0,
-            thirdNum: 0
-        }
-    },
-    watch: {
-        firstNum(val) {
-            // firstNum 只有在发生改变时，才会进入该逻辑
-            console.log('firstNum is watched: ' + val)
-            this.thirdNum = val * 100
-        }
-    },
-    created() {
-        // 该步骤在 data() 数据实例化之前。
-        // 此时改变 data() 中的数据是不会触发 change 事件的，无法进入 watch 代码部分。
-        this.firstNum = 1
-    },
-    mounted() {
-        // 该步骤在 data 数据实例化之后。
-        // 此时改变 data 中的数据是会触发 change 事件的，也就能被 watch 到。
-        this.firstNum = 2
+  components: { testchild },
+  name:'recommend',
+  data(){
+    return {
+      old:'21',
+      inputList: [{
+        label:'name'
+      }],
+      input1:'',
+      ruleForm:{
+
+      }
     }
+  },
+  computed:{
+    name(){
+      return 3
+    },
+    rules(){
+      return {
+        name: [
+          { required: true, message: '请输入活动名称', trigger: 'blur' }
+        ]
+      }
+    }
+  },
+  created(){
+    // console.log(this.name)
+  },
+  mounted() {
+    var observable = Observable.create(function (observer) {
+    observer.next(1);
+    observer.next(2);
+    observer.next(3);
+    setTimeout(() => {
+        observer.next(4);
+        observer.complete();
+    }, 1000);
+    });
+
+    console.log('just before subscribe');
+    observable.subscribe({
+        next: x => console.log('got value ' + x),
+        error: err => console.error('something wrong occurred: ' + err),
+        complete: () => console.log('done'),
+    });
+    console.log('just after subscribe');
+  },
+  methods: {
+    showname(){
+      this.$refs['operateForm'].validate((valid) => {
+        if (valid) {
+          console.log(valid)
+        } else {
+          console.log('error submit!!');
+          return false;
+        }
+      });
+    },
+    initImg(){
+      let imgnode = document.createElement('img')
+      imgnode.src = 'http://www.jim.codadsad'
+
+      this.$refs.imgmmm.appendChild(imgnode)
+    },
+    replace(){
+      // this.$router.push({name:'threejs', params: { userId: 123 },})
+    }
+  }
 }
+</script>
+
+<style scoped rel="stylesheet/stylus">
+  .wrapper{
+    width:1500px;
+    
+  }
+  .jim{
+    background: black;
+  }
+</style>

@@ -40,7 +40,6 @@ export default {
     // console.log(this.name)
   },
   mounted() {
-<<<<<<< HEAD
     // console.log(this.name)
     // let form = {}
     // this.inputList.forEach(e=>{
@@ -82,7 +81,6 @@ export default {
 
     // 取消订阅
     subscription.unsubscribe();
-=======
     console.log('test')
     console.log(document)
     fromEvent(document, 'click')
@@ -91,7 +89,6 @@ export default {
       scan(count => count + 1, 0)
     )
     .subscribe(count => console.log(`Clicked ${count} times`));
->>>>>>> c5d03939b41f2766f41df0edf85d78088e107413
   },
   methods: {
     showname(){

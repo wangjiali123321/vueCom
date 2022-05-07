@@ -42,6 +42,11 @@ export default new Router({
       path: '/rxjs',
       name: 'rxjs',
       component: (resolve) => require(['../page/rxjs'], resolve)
+    },
+    {
+      path: '/cropper',
+      name: 'cropper',
+      component: (resolve) => require(['../page/cropper'], resolve)
     }
   ],
   scrollBehavior: () => ({ y: 0 }),
