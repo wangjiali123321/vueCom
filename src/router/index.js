@@ -9,7 +9,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/rxjs'
+      redirect: '/croppa'
     },
     {
       path: '/topo',
@@ -42,6 +42,11 @@ export default new Router({
       path: '/rxjs',
       name: 'rxjs',
       component: (resolve) => require(['../page/rxjs'], resolve)
+    },
+    {
+      path: '/croppa',
+      name: 'croppa',
+      component: (resolve) => require(['../page/croppa'], resolve)
     }
   ],
   scrollBehavior: () => ({ y: 0 }),
