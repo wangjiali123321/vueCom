@@ -40,6 +40,47 @@ export default {
     // console.log(this.name)
   },
   mounted() {
+    // console.log(this.name)
+    // let form = {}
+    // this.inputList.forEach(e=>{
+    //   // this.$set(this.ruleForm,e.label,'') 
+    //   let obj = {}
+    //   obj[e.label] = ''
+    //   form = Object.assign({},form,obj)
+    // })
+    // this.ruleForm = form
+    // console.log(this.ruleForm)
+
+    // this.initImg()
+
+    // 定义一个观察者
+    const observer = (subscriber) => {
+        console.log('hello world');
+        subscriber.next(1);
+        subscriber.next(2);
+        subscriber.next(3);
+        setTimeout(() => {
+          subscriber.next(4); 
+          subscriber.complete();
+        }, 1000);
+    }
+
+    // 构建一个 Observable
+    const observable = new Observable(observer);
+    
+    console.log('just before subscribe');
+
+    // 通过 Observable 的 subscribe 方法进行调用，并返回一个 subscription 用于资源释放
+    const subscription = observable.subscribe({
+      next(x) { console.log('got value ' + x); },
+      error(err) { console.error('something wrong occurred: ' + err); },
+      complete() { console.log('done'); }
+    });
+
+    console.log('just after subscribe');
+
+    // 取消订阅
+    subscription.unsubscribe();
     console.log('test')
     console.log(document)
     fromEvent(document, 'click')
