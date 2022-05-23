@@ -1,9 +1,9 @@
 <template>
   <div class="wrapper">
     <jim-cropper :quality="30"></jim-cropper>
-    <button @click="showimage"></button>
-
+    <div>上方开源组件</div>
     <!-- 1111111 -->
+    <div>下方正在模拟实现</div>
     <input type="file"
       ref="fileInput"
       @change="_handleInputChange"/>
@@ -54,8 +54,8 @@ export default {
     },
     _drawFrame(img){
       this.canvas = this.$refs.canvas
-      this.canvas.width = 5000
-      this.canvas.height = 5000
+      this.canvas.width = 500
+      this.canvas.height = 500
       this.canvas.style.width = '400px'
       this.canvas.style.height = '400px'
 
