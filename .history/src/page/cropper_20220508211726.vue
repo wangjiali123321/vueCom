@@ -75,8 +75,8 @@ export default {
       this.imgData = {
         startX: 0,
         startY: 0,
-        width: 400,
-        height: 400
+        width: 800,
+        height: 800
       }
 
       let { startX , startY, width, height} = this.imgData
