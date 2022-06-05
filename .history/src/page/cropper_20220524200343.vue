@@ -108,11 +108,11 @@ export default {
         this._draw()
       }
     },
-    _handlePointerStart (e){
-      console.log(e)
+    _handlePointerStart (){
+
     },
-    _handlePointerMove (e) {
-      console.log(e)
+    _handlePointerMove () {
+
     },
     _draw () {
       this.$nextTick(() => {

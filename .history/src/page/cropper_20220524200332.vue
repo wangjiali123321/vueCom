@@ -85,11 +85,11 @@ export default {
     //     height: 800
     //   }
 
-      // this.imgData = {
-      //   startX: 0,
-      //   startY: 0,
-      //   width: 400,
-      //   height: 400
+      this.imgData = {
+        startX: 0,
+        startY: 0,
+        width: 400,
+        height: 400
     //   let { startX , startY, width, height} = this.imgData
     //   console.log( startX, startY, width, height)
     //   console.log('this.img',img)
@@ -108,11 +108,11 @@ export default {
         this._draw()
       }
     },
-    _handlePointerStart (e){
-      console.log(e)
+    _handlePointerStart (){
+
     },
-    _handlePointerMove (e) {
-      console.log(e)
+    _handlePointerMove () {
+
     },
     _draw () {
       this.$nextTick(() => {
