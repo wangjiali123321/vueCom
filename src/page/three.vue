@@ -22,6 +22,14 @@ export default {
     renderer.setSize( window.innerWidth, window.innerHeight );
     document.body.appendChild( renderer.domElement );
 
+      //     labelRenderer = new CSS2DRenderer();
+      // labelRenderer.setSize( window.innerWidth, window.innerHeight );
+      // labelRenderer.domElement.style.position = 'absolute';
+      // labelRenderer.domElement.style.top = '0px';
+      // labelRenderer.domElement.style.pointerEvents = 'none';
+      // _this.labelRenderer = labelRenderer;
+      // document.body.appendChild(labelRenderer.domElement);
+
     const geometry = new THREE.BoxGeometry();
     const material = new THREE.MeshBasicMaterial( { color: 0x00ff00 } );
     const cube = new THREE.Mesh( geometry, material );
