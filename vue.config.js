@@ -10,7 +10,7 @@ module.exports = {
     if (process.env.NODE_ENV === 'development') {
       // add this configuration in the development environment
       const DebugPlugin = require('webpack-vue-debug-plugin');
-      config.module
+      config.modulegit 
         .rule('vue')
         .test(/\.vue$/)
         .use('webpack-vue-debug-loader')

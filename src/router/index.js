@@ -9,7 +9,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/cropper'
+      redirect: '/star'
     },
     {
       path: '/topo',
@@ -47,6 +47,16 @@ export default new Router({
       path: '/cropper',
       name: 'cropper',
       component: (resolve) => require(['../page/cropper'], resolve)
+    },
+    {
+      path: '/simpleuplaoder',
+      name: 'simpleuplaoder',
+      component: (resolve) => require(['../page/simpleuploader'], resolve)
+    },
+    {
+      path: '/star',
+      name: 'star',
+      component: (resolve) => require(['../page/star/index'], resolve)
     }
   ],
   scrollBehavior: () => ({ y: 0 }),
