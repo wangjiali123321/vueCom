@@ -1,54 +1,25 @@
 <template>
-  <!-- 中国地图 -->
-  <div class="wrapper">
-    <slot :test="test">
-      1321
-    </slot>
-  </div>
+  <div>
+     <input type="file" @change="handleFileChange" />
+     <el-button @click="handleUpload">upload</el-button>
+  </div>
 </template>
-
-<script type="text/ecmascript-6">
-
+​
+<script>
 export default {
-  components: {  },
-  name:'recommend',
-  props:{
-    old:{
-      type: String,
-      default:''
-    }
-  },
-  data(){
-    return {
-      test:'111111'
-    }
-  },
-  watch: {
-    old:{
-      handler(newvalue,oldvalue){
-        console.log(newvalue)
-      },
-      deep:true
-    }
-  },
-  computed:{
-  },
-  beforeCreate(){
-    console.log(this.name)
-  },
-  created(){
-    console.log(this.name)
-  },
-  mounted() {
-    console.log(this.$slots)
-  },
-  methods: {
+  data: () => ({
+    container: {
+      file: null
+    }
+  }),
+  methods: {
+     handleFileChange(e) {
+       const [file] = e.target.files;
+       if (!file) return;
+       Object.assign(this.$data, this.$options.data());
+       this.container.file = file;
+     },
+     async handleUpload() {}
   }
-}
+};
 </script>
-
-<style scoped rel="stylesheet/stylus">
-  .wrapper{
-    width:1500px;
-  }
-</style>

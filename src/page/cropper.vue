@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
-    <jim-cropper :quality="30"></jim-cropper>
-    <div>上方开源组件</div>
+    <!-- <jim-cropper :quality="30"></jim-cropper> -->
+    <!-- <div>上方开源组件</div> -->
     <!-- 1111111 -->
     <div>下方正在模拟实现</div>
     <input type="file"
@@ -18,26 +18,35 @@
 </template>
 
 <script type="text/ecmascript-6">
-import jimCropper  from '../components/luckyui/jimCropper.vue'
+// import jimCropper  from '../components/luckyui/jimCropper.vue'
 
 export default {
-  components: { jimCropper },
+  components: { },
   name:'recommend',
   data(){
     return {
+      width: 400,
+      height: 400
     }
   },
   computed:{
+    outputWidth () {
+      const w = this.width
+      return w * this.quality
+    },
+    outputHeight () {
+      const h = this.height
+      return h * this.quality
+    },
   },
   created(){
     // console.log(this.name)
   },
   mounted() {
+    // this._initialize()
+    // this._draw()
   },
   methods: {
-    showimage(){
-      
-    },
     _handleInputChange () {
       let input = this.$refs.fileInput
       let file = input.files[0]
@@ -58,46 +67,81 @@ export default {
       }
       fr.readAsDataURL(file)
     },
-    // _drawFrame(img){
-    //   this.canvas = this.$refs.canvas
-    //   this.canvas.width = 500
-    //   this.canvas.height = 500
-    //   this.canvas.style.width = '400px'
-    //   this.canvas.style.height = '400px'
-
-    //   this.ctx = this.canvas.getContext('2d')
-    //   this.ctx.imageSmoothingEnabled = true;
-    //   this.ctx.imageSmoothingQuality = "high";
-    //   this.ctx.webkitImageSmoothingEnabled = true;
-    //   this.ctx.msImageSmoothingEnabled = true;
-    //   this.ctx.imageSmoothingEnabled = true;
-
-    //   // this.ctx.fillStyle = 'yellow'
-    //   // this.outputWidth = 6000
-    //   // this.outputHeight = 6000
-    //   // this.ctx.clearRect(0, 0, this.outputWidth, this.outputHeight)
-    //   // this.ctx.fillRect(0, 0, this.outputWidth, this.outputHeight)
-
-    //   this.imgData = {
-    //     startX: 0,
-    //     startY: 0,
-    //     width: 800,
-    //     height: 800
-    //   }
-
-      // this.imgData = {
-      //   startX: 0,
-      //   startY: 0,
-      //   width: 400,
-      //   height: 400
-    //   let { startX , startY, width, height} = this.imgData
+    _initialize () {
+      this.canvas = this.$refs.canvas
+      this._setSize()
+      this.canvas.style.backgroundColor = (!this.canvasColor || this.canvasColor == 'default') ? 'transparent' : (typeof this.canvasColor === 'string' ? this.canvasColor : '')
+      this.ctx = this.canvas.getContext('2d')
+      this.ctx.imageSmoothingEnabled = true;
+      this.ctx.imageSmoothingQuality = "high";
+      this.ctx.webkitImageSmoothingEnabled = true;
+      this.ctx.msImageSmoothingEnabled = true;
+      this.ctx.imageSmoothingEnabled = true;
+      this.originalImage = null
+    },
+    _setSize () {
+      this.canvas.width = this.outputWidth
+      this.canvas.height = this.outputHeight
+      this.canvas.style.width = this.width + 'px'
+      this.canvas.style.height = this.height + 'px'
+    },
+    _draw () {
+      this.$nextTick(() => {
+        if (typeof window !== 'undefined' && window.requestAnimationFrame) {
+          requestAnimationFrame(this._drawFrame)
+        } else {
+          this._drawFrame()
+        }
+      })
+    },
+    // _drawFrame () {
+    //   let ctx = this.ctx
+    //   let { startX =0, startY =0, width, height } = this.imgData
     //   console.log( startX, startY, width, height)
-    //   console.log('this.img',img)
-    //   this.ctx.drawImage(img, startX, startY, width, height)
-    //   this.canvas.toBlob((e)=>{
-    //     console.log('e',e)
-    //   })
+    //   // console.log('this.img',this.img)
+    //   ctx.drawImage(this.img, startX, startY, width, height)
     // },
+    _drawFrame(img){
+      this.canvas = this.$refs.canvas
+      this.canvas.width = 500
+      this.canvas.height = 500
+      this.canvas.style.width = '400px'
+      this.canvas.style.height = '400px'
+
+      this.ctx = this.canvas.getContext('2d')
+      this.ctx.imageSmoothingEnabled = true;
+      this.ctx.imageSmoothingQuality = "high";
+      this.ctx.webkitImageSmoothingEnabled = true;
+      this.ctx.msImageSmoothingEnabled = true;
+      this.ctx.imageSmoothingEnabled = true;
+
+      // this.ctx.fillStyle = 'yellow'
+      // this.outputWidth = 6000
+      // this.outputHeight = 6000
+      // this.ctx.clearRect(0, 0, this.outputWidth, this.outputHeight)
+      // this.ctx.fillRect(0, 0, this.outputWidth, this.outputHeight)
+
+      this.imgData = {
+        startX: 0,
+        startY: 0,
+        width: 800,
+        height: 800
+      }
+
+      this.imgData = {
+        startX: 0,
+        startY: 0,
+        width: 400,
+        height: 400
+      }
+      let { startX , startY, width, height} = this.imgData
+      console.log( startX, startY, width, height)
+      console.log('this.img',img)
+      this.ctx.drawImage(img, startX, startY, width, height)
+      this.canvas.toBlob((e)=>{
+        console.log('e',e)
+      })
+    },
     
     move (offset) {
       let oldX = this.imgData.startX
@@ -109,29 +153,11 @@ export default {
       }
     },
     _handlePointerStart (e){
-      console.log(e)
+      // console.log(e)
     },
     _handlePointerMove (e) {
-      console.log(e)
-    },
-    _draw () {
-      this.$nextTick(() => {
-        if (typeof window !== 'undefined' && window.requestAnimationFrame) {
-          requestAnimationFrame(this._drawFrame)
-        } else {
-          this._drawFrame()
-        }
-      })
-    },
-
-    _drawFrame () {
-      let ctx = this.ctx
-      let { startX, startY, width, height } = this.imgData
-      console.log( startX, startY, width, height)
-      this._paintBackground()
-      // console.log('this.img',this.img)
-      ctx.drawImage(this.img, startX, startY, width, height)
-    },
+      // console.log(e)
+    }
   }
 }
 </script>

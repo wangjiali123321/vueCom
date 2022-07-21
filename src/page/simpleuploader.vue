@@ -1,10 +1,6 @@
 <template>
   <div class="wrapper">
-    123
     <uploaderchild >
-      <template slot-scope="props">
-        {{props.test}}12
-      </template>
     </uploaderchild>
   </div>
 </template>
