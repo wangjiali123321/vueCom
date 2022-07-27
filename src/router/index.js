@@ -21,30 +21,30 @@ export default new Router({
       // component: Recommend,
       component: (resolve) => require(['../page/table'], resolve)
     },
-    {
-      path: '/map',
-      // component: Recommend,
-      component: (resolve) => require(['../page/map'], resolve)
-    },
-    {
-      path: '/test',
-      // component: Recommend,
-      name:'test',
-      component: (resolve) => require(['../page/test'], resolve)
-    },
+    // {
+    //   path: '/map',
+    //   // component: Recommend,
+    //   component: (resolve) => require(['../page/map'], resolve)
+    // },
+    // {
+    //   path: '/test',
+    //   // component: Recommend,
+    //   name:'test',
+    //   component: (resolve) => require(['../page/test'], resolve)
+    // },
     {
       path: '/three',
       name:'threejs',
       // component: Recommend,
       component: (resolve) => require(['../page/three'], resolve)
     },
+    // {
+    //   path: '/rxjs',
+    //   name: 'rxjs',
+    //   component: (resolve) => require(['../page/rxjs'], resolve)
+    // },
     {
-      path: '/rxjs',
-      name: 'rxjs',
-      component: (resolve) => require(['../page/rxjs'], resolve)
-    },
-    {
-      path: '/cropper',
+      path: '/cropper', //文件上传
       name: 'cropper',
       component: (resolve) => require(['../page/cropper'], resolve)
     },
