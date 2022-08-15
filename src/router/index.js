@@ -14,7 +14,12 @@ export default new Router({
     {
       path: '/topo',
       // component: Recommend,
-      component: (resolve) => require(['../components/topo/topo3'], resolve),
+      component: (resolve) => require(['../components/topo/topo2'], resolve),
+    },
+    {
+      path: '/toposcreen',
+      // component: Recommend,
+      component: (resolve) => require(['../components/topo/toposcreen'], resolve),
     },
     {
       path: '/table',

@@ -14,6 +14,7 @@ import '../../hightopo/plugin/ht-edgetype.js'
 import '../../hightopo/plugin/ht-form.js'
 import '../../hightopo/plugin/ht-rulerframe.js'
 
+
 export default {
   name: 'home',
   components: {
@@ -23,61 +24,78 @@ export default {
     
   },
   mounted: function() {
-    var gv = window.gv = new ht.graph.GraphView();
-    var dm = gv.dm();
-    var rotateNodes = [];
-    var scaleNodes = [];
-    gv.addToDOM();
-
-    gv.addTopPainter(function(g) {
-        g.strokeStyle = 'red';
-        g.lineWidth = 1;
-        g.beginPath();
-        dm.each(function(data) {
-            var p = data.getPosition();
-            g.moveTo(p.x - 2, p.y);
-            g.lineTo(p.x + 2, p.y);
-            g.moveTo(p.x, p.y - 2);
-            g.lineTo(p.x, p.y + 2);
-        });
-        g.stroke();
+    let dataModel = new ht.DataModel();
+    let g3d = new ht.graph3d.Graph3dView(dataModel);                  
+    let view = g3d.getView();  
+    view.className = 'main';
+    this.$refs.cutTopo.appendChild(view);  
+    window.addEventListener('resize', function (e) {
+        g3d.invalidate();
+    }, false);   
+    
+    g3d.setEye([0, 400, 800]);
+    g3d.enableToolTip();
+    g3d.getToolTip = function(e){
+        var data = this.getDataAt(e);
+        if(data){
+            return '<pre>' + JSON.stringify(data.getStyleMap(), function(key, value){
+                if(value && value.length > 0 && typeof value[0] === 'number'){
+                    var v = [];
+                    for(var i=0; i<value.length; i++){
+                        v[i] = parseFloat(value[i].toFixed(2));
+                    }                                
+                    return '[' + v.join(',') + ']';
+                }
+                return value;
+            }, 4) + '</pre>';
+        }
+        return null;
+    };
+                    
+    // first row
+    createNode([-300, 0, 300], [100, 100, 100]).s({
+        'left.color': 'pink',
+        'right.color': 'yellow',
+        'front.color': 'red',
+        'back.color': 'green',
+        'top.color': 'blue',
+        'bottom.color': 'orange'                    
+    }); 
+    createNode([-100, 0, 300], [100, 100, 100]).s({
+        'left.color': 'pink',
+        'right.color': 'yellow',
+        'front.color': 'red',
+        'back.color': 'green',
+        'top.color': 'blue',
+        'bottom.color': 'orange',
+        'all.light': false
+    });                
+    createNode([100, 0, 300], [100, 100, 100]).s({
+        'all.color': '#1ABC9C'
     });
-
-    rotateNodes.push(createNode(-150, 50, 0, 0));
-    rotateNodes.push(createNode(0, 50, 0.5, 0.5));
-    rotateNodes.push(createNode(150, 50, 1, 1.2));
-
-    scaleNodes.push(createNode(-150, 150, 0, 0));
-    scaleNodes.push(createNode(0, 150, 0.5, 0.5));
-    scaleNodes.push(createNode(150, 150, 1, 1.2));
-
-    setInterval(function() {
-        rotateNodes.forEach(function(node) {
-            var oldRotation = node.getRotation();
-            var newRotation = oldRotation + Math.PI / 30;
-            node.setRotation(newRotation);
-        });
-        scaleNodes.forEach(function(node) {
-            var oldScale = node.getScaleX();
-            var newScale = oldScale + 0.02 > 2 ? 0 : oldScale + 0.02;
-            node.setScale(newScale, newScale);
-        });
-    }, 50);
-
-    gv.fitContent(false, 50);
-
-    function createNode(x, y, anchorX, anchorY) {
+    createNode([300, 0, 300], [100, 100, 100]).s({
+        'all.color': '#1ABC9C',
+        'all.light': false
+    });
+    
+    // second row
+    createNode([-300, 0, 100], [100, 100, 100]).s({
+        'left.color': 'pink',
+        'right.color': 'yellow',
+        'front.color': 'red',
+        'back.color': 'green',                    
+        'bottom.color': 'orange',
+        'top.visible': false
+    }); 
+    function createNode(p3, s3){
         var node = new ht.Node();
-        node.setPosition(x, y)
-        node.setAnchor(anchorX, anchorY);
-        node.s({
-            'label': anchorX + ',' + anchorY,
-            // 'label': 'Position: {x:' + x + ', y:' + y + '}\nAnchor: {x:' + anchorX + ', y' + anchorY + '}',
-        });
-        dm.add(node);
-
+        node.p3(p3);
+        node.s3(s3);
+        dataModel.add(node);
         return node;
     }
+  },
+  methods:{
   }
 }
 </script>
