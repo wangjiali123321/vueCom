@@ -9,7 +9,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      redirect: '/cropper'
+      redirect: '/radio'
     },
     {
       path: '/topo',
@@ -62,6 +62,11 @@ export default new Router({
       path: '/star',
       name: 'star',
       component: (resolve) => require(['../page/star/index'], resolve)
+    },
+    {
+      path: '/radio',
+      name: 'radio',
+      component: (resolve) => require(['../page/radio/index'], resolve)
     }
   ],
   scrollBehavior: () => ({ y: 0 }),
