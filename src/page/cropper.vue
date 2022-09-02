@@ -121,7 +121,6 @@ export default {
       // this.ctx.clearRect(0, 0, this.outputWidth, this.outputHeight)
       // this.ctx.fillRect(0, 0, this.outputWidth, this.outputHeight)
 
-
       this.imgData = {
         startX: 0,
         startY: 0,
