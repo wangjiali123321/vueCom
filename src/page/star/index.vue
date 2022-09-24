@@ -1,13 +1,9 @@
 <template lang="html">
   <div>
-<<<<<<< Updated upstream
     <jimstar :size="48" :score="1"></jimstar>
     <jimstar :size="48" :score="3.5"></jimstar>
     <jimstar :size="48" :score="5"></jimstar>
     <jimstar :size="48" :score="7"></jimstar>
-=======
-    <jimstar :size="48" :score="10"></jimstar>
->>>>>>> Stashed changes
   </div>
 </template>
 
