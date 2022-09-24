@@ -44,9 +44,6 @@ export default {
       console.log(result)
       return result;
     }
-  },
-  mounted() {
-    console.log(this)
   }
 }
 </script>

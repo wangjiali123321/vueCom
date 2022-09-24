@@ -67,6 +67,7 @@ export default {
       }
       fr.readAsDataURL(file)
     },
+<<<<<<< Updated upstream
     _initialize () {
       this.canvas = this.$refs.canvas
       this._setSize()
@@ -105,6 +106,12 @@ export default {
       this.canvas = this.$refs.canvas
       this.canvas.width = 2000
       this.canvas.height = 2000
+=======
+    _drawFrame(img){
+      this.canvas = this.$refs.canvas
+      this.canvas.width = 500
+      this.canvas.height = 500
+>>>>>>> Stashed changes
       this.canvas.style.width = '400px'
       this.canvas.style.height = '400px'
 
@@ -124,8 +131,13 @@ export default {
       this.imgData = {
         startX: 0,
         startY: 0,
+<<<<<<< Updated upstream
         width: 2000,
         height: 2000
+=======
+        width: 800,
+        height: 800
+>>>>>>> Stashed changes
       }
 
       // this.imgData = {
