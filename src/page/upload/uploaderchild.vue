@@ -7,8 +7,8 @@
 ​
 <script>
 export default {
-  data: () => ({
-    container: {
+ data: () => ({
+   container: {
       file: null
     }
   }),
